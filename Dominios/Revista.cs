@@ -6,12 +6,35 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.Dominios
 {
-    class Revista
+    public class Revista
     {
         public string tipoColecao;
         public string numeroEdicao;
-        public DateTime anoRevista;
+        public string anoRevista;
         public Caixa caixa;
+        public int id;
+        public string status;
+        public Revista()
+        {
+            id = GeradorId.GerarIdRevista();
+        }
+
+        public Revista(int idSelecionado)
+        {
+            id = idSelecionado;
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            Revista revista = (Revista)obj;
+
+            if (id == revista.id)
+                return true;
+            else
+                return false;
+        }
+        
 
     }
 }
